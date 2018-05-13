@@ -1,5 +1,7 @@
 # OSA-FLASH
 
+#### The vectors art work inside OSA-Flash are my own drawings and they are not permited to be used in any way outside of OSA.
+
 Contains the source files to create the OSA.swf that gets packed in OSA for distribution.
 OSA is a skyrim mod that allows Skyrim animation to have much more potential with a clean easy to use UI to allow for the animation to also be interactive
 
