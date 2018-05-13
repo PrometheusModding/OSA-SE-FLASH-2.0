@@ -1,0 +1,7 @@
+﻿
+
+class core.util.visfx {
+
+	
+		
+}
