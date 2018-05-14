@@ -1,4 +1,4 @@
-﻿class core.actor.util.func
+class core.actor.util.func
 {
 	
 	
@@ -109,12 +109,12 @@
 		
 			
 			
-			if(data.nailfrenchRGB[0].v){
+			if(!data.nailfrenchRGB[0].v){
 				if(o.cfg.config.logging){actra.log.addLog("gfx", "Actor is using FrenchNail style graphics...")}
 				actra.gfx.frRGB = new flash.geom.ColorTransform
-				actra.gfx.frRGB.rgb = "0xFFFFFF"
-				actra.gfx.frRGB.from = "gfx.xml"
-				}else{core.actor.util.func.assignRGB(o, actra, "fr", "nailfrench", data.nailfrenchRGB[0].v)}
+				actra.gfx.frRGB = actra.gfx.npRGB
+				actra.gfx.frRGB.from = "Nailpolish (No French)"
+			}else{core.actor.util.func.assignRGB(o, actra, "fr", "nailfrench", data.nailfrenchRGB[0].v)}
 			}
 			
 			
@@ -124,15 +124,15 @@
 			if(o.cfg.config.logging){actra.log.addLog("gfx", "Assigning Attire RGB...")}
 			
 			if(!actra.gfx.gfxData.attireOptions[0].disable){
-				if(!actra.gfx.gfxData.attireIntLowRGB[0].v&&!actra.gfx.gfxData.attirePantsRGB[0].v&&!actra.gfx.gfxData.attireShirtRGB[0].v&&!actra.gfx.gfxData.attireSocksRGB[0].v){
+				if(!actra.gfx.gfxData.intlowRGB[0].v&&!actra.gfx.gfxData.shirtRGB[0].v&&!actra.gfx.gfxData.pantsRGB[0].v&&!actra.gfx.gfxData.socksRGB[0].v){
 					if(o.cfg.config.logging){actra.log.addLog("gfx", "Actor does not have attire colors in their profile, customizer attireSets are allowed...")}
 					core.util.extrasUtil.clothingSetRGB(o,actra)
 				}else{
 					if(o.cfg.config.logging){actra.log.addLog("gfx", "Actor has some attire colors in their profile, customizer attireSets are not allowed...")}
-					core.actor.util.func.assignRGB(o, actra, "c_intlow", "intlow", actra.gfx.gfxData.attireIntLowRGB[0].v)
-					core.actor.util.func.assignRGB(o, actra, "c_pants", "pants", actra.gfx.gfxData.attirePantsRGB[0].v)
-					core.actor.util.func.assignRGB(o, actra, "c_shirt", "shirt", actra.gfx.gfxData.attireShirtRGB[0].v)
-					core.actor.util.func.assignRGB(o, actra, "c_socks", "socks", actra.gfx.gfxData.attireSocksRGB[0].v)
+					core.actor.util.func.assignRGB(o, actra, "c_intlow", "intlow", actra.gfx.gfxData.intlowRGB[0].v)
+					core.actor.util.func.assignRGB(o, actra, "c_pants", "pants", actra.gfx.gfxData.pantsRGB[0].v)
+					core.actor.util.func.assignRGB(o, actra, "c_shirt", "shirt", actra.gfx.gfxData.shirtRGB[0].v)
+					core.actor.util.func.assignRGB(o, actra, "c_socks", "socks", actra.gfx.gfxData.socksRGB[0].v)
 				}
 			}else{
 				if(o.cfg.config.logging){actra.log.addLog("pro", "Attire GFX options have been disabled in actor's profile.xml...")}
@@ -140,18 +140,20 @@
 		}
 		
 			public static function expandGFX(o, actra, data){
-			if(actra.gender==0 || data.hasMaleAnatomy[0].v=="1"){
+			if(actra.gender==0 || data.mgenOptions[0].has=="1"){
 				if(o.cfg.config.logging){actra.log.addLog("gfx", "Actor has male anatomy...")}
 				actra.gfx.hasMGen = true
 			}else{
 				if(o.cfg.config.logging){actra.log.addLog("gfx", "Actor does not have male anatomy...")}
 			}
-			if(data.mgenGraphicsSize[0].v){
-				if(o.cfg.config.logging){actra.log.addLog("gfx", "Male Anatomy is size: "+data.mgenGraphicsSize[0].v+"...")}
-				actra.gfx.mgenSizeGFX = data.mgenGraphicsSize[0].v
+			
+			if(data.mgenOptions[0].size){
+				if(o.cfg.config.logging){actra.log.addLog("gfx", "Male Anatomy is size: "+data.mgenOptions[0].size+"...")}
+				actra.gfx.mgenSizeGFX = data.mgenOptions[0].size
 				}
 			else{
 				if(o.cfg.config.logging){actra.log.addLog("gfx", "Size of Male Anatomy is not defined...")}
+				actra.gfx.mgenSizeGFX = 0
 			}
 		}
 			
