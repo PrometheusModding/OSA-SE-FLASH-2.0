@@ -75,6 +75,7 @@ var time
 	
 			}else{
 				curStep = unit.xml
+				exploreAnim()
 			}
 		}
 		
