@@ -197,7 +197,7 @@ class OMajor extends MovieClip
 
 
 
-	public functionS:(maj):Void
+	public function keySim(maj):Void
 	{
 
 		var keyListener:Object = new Object();
