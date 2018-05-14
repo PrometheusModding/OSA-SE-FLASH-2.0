@@ -14,7 +14,6 @@ class core.actor.util.func
 			core.actor.util.func.assignRGB(o, actra, "es", "eyeshadow", actra.gfx.gfxData.eyeshadowRGB[0].v)
 			core.actor.util.func.assignRGB(o, actra, "bs", "blush", actra.gfx.gfxData.blushRGB[0].v)
 			core.actor.util.func.assignRGB(o, actra, "np", "nailpolish", actra.gfx.gfxData.nailpolishRGB[0].v)
-			core.actor.util.func.assignRGB(o, actra, "bs", "blush", actra.gfx.gfxData.blushRGB[0].v)
 			
 			core.actor.util.func.assignRGB(o, actra, "bl", "blood", actra.gfx.gfxData.bloodRGB[0].v)
 			core.actor.util.func.assignRGB(o, actra, "br", "bruise", actra.gfx.gfxData.bruiseRGB[0].v)
