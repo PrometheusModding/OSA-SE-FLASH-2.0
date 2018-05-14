@@ -1,4 +1,4 @@
-﻿
+
 
 class core.panel.major._credits extends MovieClip
 {
@@ -26,6 +26,33 @@ var horizon
 				var yLoc = -21
 				
 				
+				
+				type = new TextFormat();
+				type.letterSpacing = 1.3
+				type.font = o.fonts.m
+				type.size = 12
+				
+				cur = this.attachMovie("genericText", "nameVaR", this.getNextHighestDepth(), {_x:horizon, _y:yLoc}).val	
+				cur.htmlText = "github.com/CE0/ (The 0 in CE0 is a zero)"
+				cur.setTextFormat(type);
+				cur.autoSize = "right";
+				
+				
+				yLoc -= 16
+				
+				type = new TextFormat();
+				type.letterSpacing = 1.1
+				type.font = o.fonts.l
+				type.size = 10
+				
+				cur = this.attachMovie("genericText", "nameVaR", this.getNextHighestDepth(), {_x:horizon, _y:yLoc}).val	
+				cur.htmlText = "Contribute to the Projects Github:"
+				cur.setTextFormat(type);
+				cur.multiline = true
+				cur.autoSize = "right";				
+				
+				yLoc -= 40
+				
 				type = new TextFormat();
 				type.letterSpacing = 1.1
 				type.font = o.fonts.l
@@ -43,6 +70,34 @@ var horizon
 				type.size = 12
 				
 				yLoc -= 32
+				
+				
+				cur = this.attachMovie("genericText", "nameVaR", this.getNextHighestDepth(), {_x:horizon, _y:yLoc}).val	
+				cur.htmlText = "Tonyo Allie (Tooneyman)"
+				cur.setTextFormat(type);
+				cur.autoSize = "right";
+				
+				
+				yLoc -= 16
+				
+				type = new TextFormat();
+				type.letterSpacing = 1.1
+				type.font = o.fonts.l
+				type.size = 10
+				
+				cur = this.attachMovie("genericText", "nameVaR", this.getNextHighestDepth(), {_x:horizon, _y:yLoc}).val	
+				cur.htmlText = "Skyrim Special Edition Port"
+				cur.setTextFormat(type);
+				cur.multiline = true
+				cur.autoSize = "right";
+				
+				
+				yLoc -= 30
+				
+				type = new TextFormat();
+				type.letterSpacing = 1.3
+				type.font = o.fonts.m
+				type.size = 13
 				
 				cur = this.attachMovie("genericText", "nameVaR", this.getNextHighestDepth(), {_x:horizon, _y:yLoc}).val	
 				cur.htmlText = "Shinji72 | Skyrim WATCH"
@@ -72,7 +127,7 @@ var horizon
 				type.size = 13
 				
 				cur = this.attachMovie("genericText", "nameVaR", this.getNextHighestDepth(), {_x:horizon, _y:yLoc}).val	
-				cur.htmlText = "Scorpion SK"
+				cur.htmlText = "Scorpion_SK"
 				cur.setTextFormat(type);
 				cur.autoSize = "right";
 				
@@ -97,17 +152,9 @@ var horizon
 				type.font = o.fonts.m
 				type.size = 12
 				
-				cur = this.attachMovie("genericText", "nameVaR", this.getNextHighestDepth(), {_x:horizon, _y:yLoc}).val	
-				cur.htmlText = "LucasHM"
-				cur.setTextFormat(type);
-				cur.autoSize = "right";
-				
-				
-				yLoc -= 17
-				
 				
 				cur = this.attachMovie("genericText", "nameVaR", this.getNextHighestDepth(), {_x:horizon, _y:yLoc}).val	
-				cur.htmlText = "Mysterious Guy"
+				cur.htmlText = "MysteriousGuy   LucasHM"
 				cur.setTextFormat(type);
 				cur.autoSize = "right";
 				
@@ -133,37 +180,15 @@ var horizon
 				type.font = o.fonts.m
 				type.size = 12
 				
-				
 				cur = this.attachMovie("genericText", "nameVaR", this.getNextHighestDepth(), {_x:horizon, _y:yLoc}).val	
-				cur.htmlText = "Jerok"
+				cur.htmlText = "Komotor   FoxFingers   Jerok"
 				cur.setTextFormat(type);
 				cur.autoSize = "right";
 				
 				yLoc -= 17
 				
 				cur = this.attachMovie("genericText", "nameVaR", this.getNextHighestDepth(), {_x:horizon, _y:yLoc}).val	
-				cur.htmlText = "FoxFingers"
-				cur.setTextFormat(type);
-				cur.autoSize = "right";
-				
-				yLoc -= 17
-				
-				cur = this.attachMovie("genericText", "nameVaR", this.getNextHighestDepth(), {_x:horizon, _y:yLoc}).val	
-				cur.htmlText = "R-H-Z"
-				cur.setTextFormat(type);
-				cur.autoSize = "right";
-				
-				yLoc -= 17
-				
-				cur = this.attachMovie("genericText", "nameVaR", this.getNextHighestDepth(), {_x:horizon, _y:yLoc}).val	
-				cur.htmlText = "Proxy86"
-				cur.setTextFormat(type);
-				cur.autoSize = "right";
-				
-				yLoc -= 17
-				
-				cur = this.attachMovie("genericText", "nameVaR", this.getNextHighestDepth(), {_x:horizon, _y:yLoc}).val	
-				cur.htmlText = "Morra"
+				cur.htmlText = "Morra   Proxy86   R-H-Z"
 				cur.setTextFormat(type);
 				cur.autoSize = "right";
 				
@@ -189,37 +214,16 @@ var horizon
 				type.letterSpacing = 1.3
 				type.font = o.fonts.m
 				type.size = 12
-				
+								
 				cur = this.attachMovie("genericText", "nameVaR", this.getNextHighestDepth(), {_x:horizon, _y:yLoc}).val	
-				cur.htmlText = "SF"
+				cur.htmlText = "Scorpion_SK   SF   Tooneyman"
 				cur.setTextFormat(type);
 				cur.autoSize = "right";
-				
+								
 				yLoc -= 17
 				
 				cur = this.attachMovie("genericText", "nameVaR", this.getNextHighestDepth(), {_x:horizon, _y:yLoc}).val	
-				cur.htmlText = "Scorpion SK"
-				cur.setTextFormat(type);
-				cur.autoSize = "right";
-				
-				yLoc -= 17
-				
-				cur = this.attachMovie("genericText", "nameVaR", this.getNextHighestDepth(), {_x:horizon, _y:yLoc}).val	
-				cur.htmlText = "Pipdude"
-				cur.setTextFormat(type);
-				cur.autoSize = "right";
-				
-				yLoc -= 17
-				
-				cur = this.attachMovie("genericText", "nameVaR", this.getNextHighestDepth(), {_x:horizon, _y:yLoc}).val	
-				cur.htmlText = "Migal"
-				cur.setTextFormat(type);
-				cur.autoSize = "right";
-				
-				yLoc -= 17
-				
-				cur = this.attachMovie("genericText", "nameVaR", this.getNextHighestDepth(), {_x:horizon, _y:yLoc}).val	
-				cur.htmlText = "Kinky"
+				cur.htmlText = "Kinky   Migal   Pipdude"
 				cur.setTextFormat(type);
 				cur.autoSize = "right";
 				
