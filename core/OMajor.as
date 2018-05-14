@@ -44,7 +44,7 @@ class OMajor extends MovieClip
 	public var osaStatus:String;
 
 
-	var ver = "2.02";
+	var ver = "2.03SE";
 	var flashDevMode;
 
 	public function OMajor()
