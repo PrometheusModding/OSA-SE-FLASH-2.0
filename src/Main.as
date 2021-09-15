@@ -2,8 +2,10 @@
  * ...
  * @author Prometheus
  */
+
 class Main 
 {
+	
 	
 	public static function main(swfRoot:MovieClip):Void 
 	{
