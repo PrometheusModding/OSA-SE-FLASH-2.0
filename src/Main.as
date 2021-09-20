@@ -3,18 +3,11 @@
  * @author Prometheus
  */
 
-class Main 
-{
-	
-	
-	public static function main(swfRoot:MovieClip):Void 
+class Main
+{	
+	public static function main():Void
 	{
-		// entry point
+		Object.registerClass("empty class", Root);
+		_root.attachMovie("empty class", "root", 0, {_x:75, _y:150});
 	}
-	
-	public function Main() 
-	{
-		
-	}
-	
 }

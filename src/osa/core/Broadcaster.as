@@ -21,7 +21,7 @@ class osa.core.Broadcaster implements IEventDispatcher
 
 	public function addEventListener(event:String, listener:Object, mappedTo:String):Boolean
 	{
-		for (var i in _listeners)
+		for (var i:String in _listeners)
 		{
 			if (_listeners[i].event == event &&
 			_listeners[i].listener == listener) return false;
