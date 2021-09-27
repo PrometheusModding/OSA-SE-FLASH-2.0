@@ -1,19 +1,19 @@
 /**
- * ...
- * @author Prometheus
+ * 
  */
-
 dynamic class osa.graphic.StyleFormat
 {
+	private var __listeners:Array = [];
+	
 	public var name:String;
-	//Hex
 	public var background:Number;
 	public var face:Number;
 	public var border:Number;
 	public var highlight:Number;
 	public var selected:Number;
+	public var shadow:Number;
 	public var textFormat:TextFormat;
-	public var _listeners:Array = [];
+	public var styleReference:String;	
 	
 	public function StyleFormat(name:String) 
 	{
@@ -23,7 +23,12 @@ dynamic class osa.graphic.StyleFormat
 	private function init(nm:String):Void
 	{
 		name = nm;
-		// Default Hex values...
+		background = 0x454545;
+		face = 0x999999;
+		border = 0x000000;
+		highlight = 0xFFFFFF;
+		shadow = 0x666666;
+		selected = 0xCCCCCC;
 		textFormat = new TextFormat("Arial", 12);
 	}
 	
@@ -32,23 +37,23 @@ dynamic class osa.graphic.StyleFormat
 		listener.styleFormat.removeListener(listener);
 		listener.styleFormat = this;
 		
-		for (var i:String in _listeners)
+		for (var i:String in __listeners)
 		{
-			if (_listeners[i] == listener) return;
+			if (__listeners[i] == listener) return;
 		}
 		
-		_listeners.push(listener);
+		__listeners.push(listener);
 	}
 	
 	public function removeListener(listener:Object):Void
 	{
-		var length:Number = _listeners.length;
+		var length:Number = __listeners.length;
 		
 		for (var i:Number = 0; i < length; i++)
 		{
-			if (_listeners[i] == listener)
+			if (__listeners[i] == listener)
 			{
-				_listeners.splice(i, 1);
+				__listeners.splice(i, 1);
 				break;
 			}
 		}
@@ -58,9 +63,9 @@ dynamic class osa.graphic.StyleFormat
 	
 	public function updateStyles():Void
 	{
-		for (var i:String in _listeners)
+		for (var i:String in __listeners)
 		{
-			_listeners[i].updateStyles();
+			__listeners[i].updateStyles();
 		}
 	}
 }

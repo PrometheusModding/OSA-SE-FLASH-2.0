@@ -1,8 +1,6 @@
 /**
- * ...
- * @author Prometheus
+ * 
  */
-
 interface osa.core.IEventDispatcher 
 {
 	public function dispatchEvent(event:String, params:Object):Void;

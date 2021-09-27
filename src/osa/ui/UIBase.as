@@ -1,33 +1,34 @@
-/**
- * ...
- * @author Prometheus
- */
-
+import osa.graphic.skins.ISkinnable;
 import osa.ui.UIObject;
- 
+
+/**
+ * 
+ */
 class osa.ui.UIBase extends UIObject
 {
-	private var className = "UIBase"
-	private var _graphicMC:MovieClip;
-	private var _baseGraphic:String;
-	private var _state:String;
+	private static var className:String = "UIBase";
 	
-	static public var defaultGraphic:String = "Default Graphic"
+	private var __graphicMC:ISkinnable;
+	private var __baseGraphic:String;
+	private var __state:String;
+	
+	static public var defaultGraphic:String = "Default Graphic";
 	
 	public function UIBase() {}
 	
 	private function init():Void
 	{
 		super.init();
+		__classes.push(UIBase.className);
+		_global.StyleManager.style(this);
 		attachGraphics();
 	}
 	
 	private function attachGraphics():Void 
 	{
-		var initObject:Object = {width:_width, height:_height, state:_state, component:this};
-		var graphic:String = getGraphic("_baseGraphic")
-		
-		createObject(_baseGraphic, "_graphicMC", 0, initObject);
+		var initObject:Object = {width:__width, height:__height, state:__state, component:this};
+		var graphic:String = getGraphic("__baseGraphic");
+		createObject(graphic, "__graphicMC", 0, initObject);
 	}
 	
 	private function resolveGraphic(graphic:String):String
@@ -38,38 +39,28 @@ class osa.ui.UIBase extends UIObject
 	public function setSize(w:Number, h:Number):Void
 	{
 		super.setSize(w, h);
-		_graphicMC.setSize(_width, _height)
+		__graphicMC.setSize(__width, __height);
 	}
 	
 	public function get graphic():String
 	{
-		return _baseGraphic;
+		return __baseGraphic;
 	}
 	
 	public function set graphic(graphic:String):Void
 	{
-		_baseGraphic = graphic;
+		__baseGraphic = graphic;
 		attachGraphics();
 	}
 	
 	public function get state():String
 	{
-		return _state;
+		return __state;
 	}
 	
 	public function set state(state:String):Void
 	{
-		_state = state;
-		_graphicMC.changeState(_state);
+		__state = state;
+		__graphicMC.changeState(__state);
 	}
-	
-	// needs to be implemented on graphic elements
-	/*private function changeState(s:String):Void
-	{		
-		state = s;
-		drawRectangle();		
-	}
-	
-	function drawRectangle() {}
-	*/
 }

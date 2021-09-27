@@ -1,27 +1,28 @@
-/**
- * ...
- * @author Prometheus
- */
-
 import flash.geom.Point;
 import osa.core.IEventDispatcher;
 import osa.core.Broadcaster;
+import osa.graphic.StyleFormat;
 import osa.managers.StyleManager;
 
+/**
+ *
+ */
 class osa.ui.UIObject extends MovieClip implements IEventDispatcher
 {
 	private static var className:String = "UIObject";
 	
 	// Holds the className of each UIObject this class inherited from in order of first to last
-	private var _classes:Array;
+	private var __classes:Array;
 	private var __enabled:Boolean;
 	private var __width:Number;
 	private var __height:Number;
 	private var __initialWidth:Number;
 	private var __initialHeight:Number;
-	private var _children:Array;
+	private var __children:Array;
 	private var __dispatcher:Broadcaster;
-
+	
+	public var styleFormatName:String;
+	public var styleFormat:StyleFormat;
 	
 	public function UIObject()
 	{
@@ -35,8 +36,8 @@ class osa.ui.UIObject extends MovieClip implements IEventDispatcher
 	
 	private function init():Void 
 	{
-		_class = [className]
-		_children = [];
+		__classes = [UIObject.className]
+		__children = [];
 		__dispatcher = new Broadcaster();
 		__enabled = true;
 		tabEnabled = false;
@@ -44,8 +45,8 @@ class osa.ui.UIObject extends MovieClip implements IEventDispatcher
 		tabChildren = true;
 		_focusrect = false;
 		useHandCursor = false;
-		__width = __initialWidth || __width;
-		__height = __initialHeight || __height;
+		__width = __initialWidth || _width;
+		__height = __initialHeight || _height;
 		_xscale = _yscale = 100;
 	}
 	
@@ -115,7 +116,7 @@ class osa.ui.UIObject extends MovieClip implements IEventDispatcher
 	
 	public function get position():Point
 	{
-		return new Point(this._x, this._y)
+		return new Point(this._x, this._y);
 	}
 	
 	public function set position(pos:Point):Void
@@ -150,9 +151,8 @@ class osa.ui.UIObject extends MovieClip implements IEventDispatcher
 		{
 			depth = getNextHighestDepth();
 		}
-		
 		var object:MovieClip = attachMovie(linkID, name, depth, initObj);
-		_children.push(object);
+		__children.push(object);
 		
 		return object;
 	}
@@ -175,12 +175,12 @@ class osa.ui.UIObject extends MovieClip implements IEventDispatcher
 	
 	public function remove():Void
 	{
-		var children:Number = _children.length;
+		var children:Number = __children.length;
 		var child:MovieClip;
 		
-		for (var i:Number = 0; i < children; i++)
+		for (var i:Number = children - 1; i > -1; i--)
 		{
-			child = _children[i];
+			child = __children[i];
 			
 			if (!UIObject(child)) 
 			{
@@ -201,12 +201,12 @@ class osa.ui.UIObject extends MovieClip implements IEventDispatcher
 	
 	public function removeChild(child:MovieClip):Boolean
 	{
-		var children:Number = _children.length;
+		var children:Number = __children.length;
 		for (var i:Number = 0; i < children; i++) 
 		{
-			if (child == _children[i]) 
+			if (child == __children[i]) 
 			{
-				_children.splice(i, 1);
+				__children.splice(i, 1);
 				return true;
 			}
 		}
@@ -224,9 +224,9 @@ class osa.ui.UIObject extends MovieClip implements IEventDispatcher
 	*/	
 	public function get classes():Array {
 		var arr = [];
-		for (var i:Number = 0; i < _classes.length; i++) 
+		for (var i:Number = 0; i < __classes.length; i++) 
 		{
-			arr.push(_classes[i]);
+			arr.push(__classes[i]);
 		}
 		
 		return arr;
@@ -234,7 +234,8 @@ class osa.ui.UIObject extends MovieClip implements IEventDispatcher
 
 	public function updateStyles(style:StyleFormat):Void 
 	{
-		if (style != undefined) {
+		if (style != undefined) 
+		{
 			if (style != styleFormat) style.addListener(this);
 		}
 		

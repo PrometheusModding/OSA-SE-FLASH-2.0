@@ -1,15 +1,14 @@
-/**
- * ...
- * @author Prometheus
- */
-
 import osa.core.Observer;
 import osa.data.Scene;
- 
+
+/**
+ * 
+ */
 class osa.models.NavMenuModel extends Observer
 {
 	
-	private var _scene:Scene;
+	private var __scene:Scene;
+	private var __activeTabs
 	
 	public function NavMenuModel() 
 	{
@@ -23,7 +22,7 @@ class osa.models.NavMenuModel extends Observer
 	
 	public function set scene(scene:Scene)
 	{
-		_scene = scene;
+		__scene = scene;
 		super.notifyChanges({operation:"SceneChanged"});
 	}
 }

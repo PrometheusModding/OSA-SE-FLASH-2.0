@@ -1,13 +1,11 @@
-/**
- * ...
- * @author Prometheus
- */
-
 import osa.core.IEventDispatcher;
 
+/**
+ *  
+ */
 class osa.core.Broadcaster implements IEventDispatcher
 {
-	private var _listeners:Array;
+	private var __listeners:Array;
 
 	public function Broadcaster()
 	{
@@ -16,30 +14,30 @@ class osa.core.Broadcaster implements IEventDispatcher
 
 	private function init():Void
 	{
-		_listeners = [];
+		__listeners = [];
 	}
 
 	public function addEventListener(event:String, listener:Object, mappedTo:String):Boolean
 	{
-		for (var i:String in _listeners)
+		for (var i:String in __listeners)
 		{
-			if (_listeners[i].event == event &&
-			_listeners[i].listener == listener) return false;
+			if (__listeners[i].event == event &&
+			__listeners[i].listener == listener) return false;
 		}
 		
-		_listeners.push({event:event, listener:listener, mappedTo:mappedTo});
+		__listeners.push({event:event, listener:listener, mappedTo:mappedTo});
 		
 		return true;
 	}
 	
 	public function removeEventListener(event:String, listener:Object):Boolean
 	{
-		for (var i = 0; i < _listeners.length; i++)
+		for (var i = 0; i < __listeners.length; i++)
 		{
-			if (_listeners[i].event == event &&
-			_listeners[i].listener == listener)
+			if (__listeners[i].event == event &&
+			__listeners[i].listener == listener)
 			{
-				_listeners.splice(i, 1);
+				__listeners.splice(i, 1);
 				
 				return true;
 			}
@@ -50,14 +48,14 @@ class osa.core.Broadcaster implements IEventDispatcher
 	
 	public function dispatchEvent(event:String, params:Object):Void
 	{
-		var eventObject = {type:event, parameteres:params};
+		var eventObject = {type:event, parameters:params};
 		
-		for (var i:String in _listeners)
+		for (var i:String in __listeners)
 		{
-			if (_listeners[i].event == event)
+			if (__listeners[i].event == event)
 			{
-				_listeners[i].listener[event](eventObject);
-				_listeners[i].listener[_listeners[i].mappedTo](eventObject);
+				__listeners[i].listener[event](eventObject);
+				__listeners[i].listener[__listeners[i].mappedTo](eventObject);
 			}
 		}
 		
